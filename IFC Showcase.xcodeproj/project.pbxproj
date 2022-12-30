@@ -78,7 +78,6 @@
 		55F299CD295EC2870044360D = {
 			isa = PBXGroup;
 			children = (
-				55F29A05295EDF440044360D /* AchievementsView.swift */,
 				55F299D8295EC2870044360D /* IFC Showcase */,
 				55F299E9295EC28A0044360D /* IFC ShowcaseTests */,
 				55F299F3295EC28A0044360D /* IFC ShowcaseUITests */,
@@ -102,6 +101,7 @@
 				55F299D9295EC2870044360D /* IFC_ShowcaseApp.swift */,
 				55F299DB295EC2870044360D /* ContentView.swift */,
 				55F29A03295ECE850044360D /* HomeView.swift */,
+				55F29A05295EDF440044360D /* AchievementsView.swift */,
 				55F299DD295EC28A0044360D /* Assets.xcassets */,
 				55F299DF295EC28A0044360D /* Preview Content */,
 			);
