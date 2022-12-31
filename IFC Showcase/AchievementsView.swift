@@ -23,7 +23,9 @@ struct AchievementsView: View {
             NavigationStack {
                 ScrollView {
                     VStack(alignment: .center) {
-                        ForEach(achievementsList) { achievement in
+                        ForEach(achievementsList.filter({achievement in
+                            achievement.title.lowercased().contains(searchTerm.lowercased()) || searchTerm.isEmpty
+                        })) { achievement in
                             VStack(alignment: .leading, spacing: -7) {
                                 ZStack(alignment: .center) {
                                     RoundedRectangle(cornerRadius: 5)
