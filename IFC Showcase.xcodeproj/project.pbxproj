@@ -16,6 +16,7 @@
 		55F299F7295EC28A0044360D /* IFC_ShowcaseUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55F299F6295EC28A0044360D /* IFC_ShowcaseUITestsLaunchTests.swift */; };
 		55F29A04295ECE850044360D /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55F29A03295ECE850044360D /* HomeView.swift */; };
 		55F29A06295EDF440044360D /* AchievementsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55F29A05295EDF440044360D /* AchievementsView.swift */; };
+		55F29A08295FFB4D0044360D /* Structs & Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55F29A07295FFB4D0044360D /* Structs & Data.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +49,7 @@
 		55F299F6295EC28A0044360D /* IFC_ShowcaseUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IFC_ShowcaseUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		55F29A03295ECE850044360D /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		55F29A05295EDF440044360D /* AchievementsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementsView.swift; sourceTree = "<group>"; };
+		55F29A07295FFB4D0044360D /* Structs & Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Structs & Data.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +80,7 @@
 		55F299CD295EC2870044360D = {
 			isa = PBXGroup;
 			children = (
+				55F29A07295FFB4D0044360D /* Structs & Data.swift */,
 				55F299D8295EC2870044360D /* IFC Showcase */,
 				55F299E9295EC28A0044360D /* IFC ShowcaseTests */,
 				55F299F3295EC28A0044360D /* IFC ShowcaseUITests */,
@@ -265,6 +268,7 @@
 			files = (
 				55F29A06295EDF440044360D /* AchievementsView.swift in Sources */,
 				55F29A04295ECE850044360D /* HomeView.swift in Sources */,
+				55F29A08295FFB4D0044360D /* Structs & Data.swift in Sources */,
 				55F299DC295EC2870044360D /* ContentView.swift in Sources */,
 				55F299DA295EC2870044360D /* IFC_ShowcaseApp.swift in Sources */,
 			);
