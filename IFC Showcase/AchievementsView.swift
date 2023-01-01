@@ -9,9 +9,19 @@ import SwiftUI
 
 struct AchievementsView: View {
     
-    var achievementsList: [Achievement] = [Achievement(image: "Digital For Life Youth Awards 2022, Media Accomplishment", year: 2022, title: "Digital For Life Youth Awards 2022, Media Accomplishment"), Achievement(image: "Digital For Life Youth Awards 2022, Tech Accomplishment", year: 2022, title: "Digital For Life Youth Awards 2022, Tech Accomplishment"), Achievement( image: "Imagine Cup Junior Singapore 2022", year: 2022, title: "Imagine Cup Junior Singapore 2022, Top 10 Team"), Achievement(image: "Swift Explorers 2022", year: 2022, title: "Swift Explorers 2022, Finalist"), Achievement(image: "SIS 2022, Remorise", year: 2022, title: "App presentation of Remorise at Swift Innovators' Summit 2022")]
+    var achievementsList: [Achievement] = [
+        Achievement(image: "Digital For Life Youth Awards 2022, Media Accomplishment", year: 2022, title: "Digital For Life Youth Awards 2022, Media Accomplishment", organisers: [Organiser(logo: "IMDA", name: "IMDA")]),
+        Achievement(image: "Digital For Life Youth Awards 2022, Tech Accomplishment", year: 2022, title: "Digital For Life Youth Awards 2022, Tech Accomplishment", organisers: [Organiser(logo: "IMDA", name: "IMDA")]),
+        Achievement(image: "Imagine Cup Junior Singapore 2022", year: 2022, title: "Imagine Cup Junior Singapore 2022, Top 10 Team", organisers: [Organiser(logo: "Microsoft", name: "Microsoft")]),
+        Achievement(image: "Swift Explorers 2022", year: 2022, title: "Swift Explorers 2022, Finalist", organisers: [Organiser(logo: "Apple", name: "Apple")]),
+        Achievement(image: "SIS 2022, Remorise", year: 2022, title: "App presentation of Remorise at Swift Innovators' Summit 2022", organisers: [Organiser(logo: "Apple", name: "Apple")])
+    ]
     
     //yes this is stupid but i dont want to make an achievement manager thank you :)
+    
+    //APPLE COPY: organisers: [Organiser(logo: "Apple", name: "Apple")]
+    //MICROSOFT COPY: organisers: [Organiser(logo: "Microsoft", name: "Microsoft")]
+    //IMDA COPY: organisers: [Organiser(logo: "IMDA", name: "IMDA")]
     
     @State var searchTerm = ""
     
@@ -23,7 +33,7 @@ struct AchievementsView: View {
             NavigationStack {
                 ScrollView(showsIndicators: false) {
                     VStack(alignment: .center) {
-                        ForEach(achievementsList.filter({achievement in
+                        ForEach(achievementsList.filter({ achievement in
                             achievement.title.lowercased().contains(searchTerm.lowercased()) || searchTerm.isEmpty
                         })) { achievement in
                             VStack(alignment: .leading, spacing: -7) {
@@ -47,21 +57,26 @@ struct AchievementsView: View {
                                             .frame(width: 300)
                                             .mask(RoundedRectangle(cornerRadius: 5))
                                             .padding(15)
-                                        VStack(alignment: .leading) {
+                                        VStack(alignment: .center, spacing: 5) {
                                             Text(achievement.title)
                                                 .foregroundColor(.white)
-                                                .frame(maxWidth: 400)
+                                                .frame(maxWidth: 350)
                                                 .font(.system(size: 20, weight: .bold, design: .serif))
-                                                .multilineTextAlignment(.leading)
-                                                .padding(.leading, -10)
+                                                .multilineTextAlignment(.center)
+                                            #warning(".leading alignment is so goddamn wonky please fix")
                                             Text(achievement.description)
                                                 .foregroundColor(.white)
                                                 .frame(maxWidth: 400)
-                                                .font(.system(.caption, design: .serif))
-                                                .multilineTextAlignment(.leading)
-                                                .padding(10)
+                                                .font(.system(size: 12, design: .serif))
+                                                .multilineTextAlignment(.center)
+                                            OrganiserTagView(organiser: achievement.organisers[0])
                                                 .padding(.top, -5)
+//                                            ForEach(achievement.organisers) { organiser in
+//                                                OrganiserTagView(organiser: organiser)
+//                                            }
+                                            #warning("something wrong here with the for each")
                                         }
+                                        .padding(.leading, 13)
                                     }
                                     .padding(20)
                                 }
