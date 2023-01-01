@@ -22,6 +22,7 @@ struct OrganiserTagView: View {
                     RoundedRectangle(cornerRadius: 30, style: .continuous)
                         .foregroundColor(.white)
                         .frame(height: 40)
+                        .frame(maxWidth: 105)
                         .padding(.top, 2)
                         .padding(.bottom, 2)
                         .padding(.leading, 2)
