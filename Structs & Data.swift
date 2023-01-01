@@ -12,5 +12,11 @@ struct Achievement: Identifiable {
     var image: String
     var year: Int
     var title: String
+    var description: String = "yes this is a three line description placeholder while justine works away and i am just too lazy to cut off dummy text so here is my original dummy text anyway this competition is super cool!! and the description is super long to test who the heck will read all of this nonsense"
 }
 
+struct Organiser: Identifiable {
+    var id: UUID = UUID()
+    var logo: String
+    var name: String
+}

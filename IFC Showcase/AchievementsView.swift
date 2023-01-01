@@ -21,7 +21,7 @@ struct AchievementsView: View {
         ZStack {
             Color("BackgroundBlue")
             NavigationStack {
-                ScrollView {
+                ScrollView(showsIndicators: false) {
                     VStack(alignment: .center) {
                         ForEach(achievementsList.filter({achievement in
                             achievement.title.lowercased().contains(searchTerm.lowercased()) || searchTerm.isEmpty
@@ -38,20 +38,30 @@ struct AchievementsView: View {
                                 ZStack(alignment: .center){
                                     RoundedRectangle(cornerRadius: 5)
                                         .foregroundColor(Color(getBackgroundColor(for: achievement.year)))
-                                        .frame(maxWidth: 600)
+                                        .frame(maxWidth: 800)
                                         .controlSize(.large)
-                                    VStack(alignment: .center){
+                                    HStack(alignment: .center){
                                         Image(achievement.image)
                                             .resizable()
                                             .scaledToFit()
                                             .frame(width: 300)
                                             .mask(RoundedRectangle(cornerRadius: 5))
-                                        Text(achievement.title)
-                                            .foregroundColor(.white)
-                                            .frame(maxWidth: 500)
-                                            .font(.system(size: 20, weight: .bold, design: .serif))
-                                            .multilineTextAlignment(.center)
-                                            .padding(.top, 10)
+                                            .padding(15)
+                                        VStack(alignment: .leading) {
+                                            Text(achievement.title)
+                                                .foregroundColor(.white)
+                                                .frame(maxWidth: 400)
+                                                .font(.system(size: 20, weight: .bold, design: .serif))
+                                                .multilineTextAlignment(.leading)
+                                                .padding(.leading, -10)
+                                            Text(achievement.description)
+                                                .foregroundColor(.white)
+                                                .frame(maxWidth: 400)
+                                                .font(.system(.caption, design: .serif))
+                                                .multilineTextAlignment(.leading)
+                                                .padding(10)
+                                                .padding(.top, -5)
+                                        }
                                     }
                                     .padding(20)
                                 }
