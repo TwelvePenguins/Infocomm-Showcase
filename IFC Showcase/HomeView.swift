@@ -13,7 +13,7 @@ struct HomeView: View {
     
     var body: some View {
         NavigationStack {
-            ZStack {
+            ZStack(alignment: .center) {
                 HStack(spacing: 0) {
                     Rectangle()
                         .foregroundColor(Color("BackgroundBlue"))
@@ -28,7 +28,7 @@ struct HomeView: View {
                     Text("Coding")
                         .foregroundColor(.white)
                         .font(.system(size: 50, design: .monospaced))
-                    HStack {
+                    HStack(alignment: .center) {
                         NavigationLink {
                             AchievementsView()
                         } label: {
@@ -43,8 +43,8 @@ struct HomeView: View {
                                     .multilineTextAlignment(.center)
                             }
                         }
-                        .padding(.leading, 100)
-                        Spacer()
+                        .padding(.leading, 125)
+                        Spacer(minLength: 100)
                         Link(destination: URL(string: "https://form.gov.sg/63ae667af03e1f00121e1e44")!) {
                             ZStack(alignment: .center) {
                                 Circle()
@@ -55,7 +55,7 @@ struct HomeView: View {
                                     .foregroundColor(.white)
                                     .font(.system(size: 50, design: .monospaced))
                             }
-                            .padding(.trailing, 100)
+                            .padding(.trailing, 125)
                         }
                     }
                 }
