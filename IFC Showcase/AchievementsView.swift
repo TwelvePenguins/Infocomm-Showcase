@@ -72,8 +72,8 @@ func getBackgroundColor(for year: Int) -> String {
     if year == 2022 {
         return "Blue2022"
     } else if year == 2021 {
-        return "Blue 2021"
+        return "Blue2021"
     } else {
-        return "Blue 2020"
+        return "Blue2020"
     }
 }
