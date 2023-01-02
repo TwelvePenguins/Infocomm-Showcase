@@ -2,26 +2,27 @@
 //  AchievementsView.swift
 //  IFC Showcase
 //
-//  Created by Yuhan Du on 30/12/22.
+//  Created by duhan Du on 30/12/22.
 //
 
 import SwiftUI
 
+@available(iOS 16.0, *)
 struct AchievementsView: View {
     
     var achievementsList: [Achievement] = [
-        Achievement(image: "Digital For Life Youth Awards 2022, Media Accomplishment", year: 2022, title: "Digital For Life Youth Awards 2022, Media Accomplishment", organisers: [Organiser(logo: "IMDA", name: "IMDA")]),
-        Achievement(image: "Digital For Life Youth Awards 2022, Tech Accomplishment", year: 2022, title: "Digital For Life Youth Awards 2022, Tech Accomplishment", organisers: [Organiser(logo: "IMDA", name: "IMDA")]),
-        Achievement(image: "Imagine Cup Junior Singapore 2022", year: 2022, title: "Imagine Cup Junior Singapore 2022, Top 10 Team", organisers: [Organiser(logo: "Microsoft", name: "Microsoft")]),
-        Achievement(image: "Swift Explorers 2022", year: 2022, title: "Swift Explorers 2022, Finalist", organisers: [Organiser(logo: "Apple", name: "Apple")]),
-        Achievement(image: "SIS 2022, Remorise", year: 2022, title: "App presentation of Remorise at Swift Innovators' Summit 2022", organisers: [Organiser(logo: "Apple", name: "Apple")])
+        Achievement(image: "Digital For Life Youth Awards 2022, Media Accomplishment", year: 2022, title: "Digital For Life Youth Awards 2022, Media Accomplishment", organizers: [Organizer(logo: "IMDA", name: "IMDA")]),
+        Achievement(image: "Digital For Life Youth Awards 2022, Tech Accomplishment", year: 2022, title: "Digital For Life Youth Awards 2022, Tech Accomplishment", organizers: [Organizer(logo: "IMDA", name: "IMDA")]),
+        Achievement(image: "Imagine Cup Junior Singapore 2022", year: 2022, title: "Imagine Cup Junior Singapore 2022, Top 10 Team", organizers: [Organizer(logo: "Microsoft", name: "Microsoft")]),
+        Achievement(image: "Swift Explorers 2022", year: 2022, title: "Swift Explorers 2022, Finalist", organizers: [Organizer(logo: "Apple", name: "Apple")]),
+        Achievement(image: "SIS 2022, Remorise", year: 2022, title: "App presentation of Remorise at Swift Innovators' Summit 2022", organizers: [Organizer(logo: "Apple", name: "Apple"), Organizer(logo: "IMDA", name: "IMDA")])
     ]
     
     //yes this is stupid but i dont want to make an achievement manager thank you :)
     
-    //APPLE COPY: organisers: [Organiser(logo: "Apple", name: "Apple")]
-    //MICROSOFT COPY: organisers: [Organiser(logo: "Microsoft", name: "Microsoft")]
-    //IMDA COPY: organisers: [Organiser(logo: "IMDA", name: "IMDA")]
+    //APPLE COPY: organizers: [Organizer(logo: "Apple", name: "Apple")]
+    //MICROSOFT COPY: organizers: [Organizer(logo: "Microsoft", name: "Microsoft")]
+    //IMDA COPY: organizers: [Organizer(logo: "IMDA", name: "IMDA")]
     
     @State var searchTerm = ""
     
@@ -37,19 +38,18 @@ struct AchievementsView: View {
                             achievement.title.lowercased().contains(searchTerm.lowercased()) || searchTerm.isEmpty
                         })) { achievement in
                             VStack(alignment: .leading, spacing: -7) {
-                                ZStack(alignment: .center) {
-                                    RoundedRectangle(cornerRadius: 5)
-                                        .foregroundColor(Color(getBackgroundColor(for: achievement.year)))
-                                        .frame(width: 120, height: 40)
-                                    Text(String(achievement.year))
-                                        .font(.system(size: 20, design: .monospaced))
-                                        .foregroundColor(.white)
-                                }
+                                Text(String(achievement.year))
+                                    .font(.system(size: 20, design: .monospaced))
+                                    .foregroundColor(.white)
+                                    .frame(width: 120, height: 40)
+                                    .background(Color(getBackgroundColor(for: achievement.year)))
+                                    .cornerRadius(5)
+                                
                                 ZStack(alignment: .center){
                                     RoundedRectangle(cornerRadius: 5)
                                         .foregroundColor(Color(getBackgroundColor(for: achievement.year)))
                                         .frame(maxWidth: 800)
-                                        .controlSize(.large)
+                                    
                                     HStack(alignment: .center){
                                         Image(achievement.image)
                                             .resizable()
@@ -57,25 +57,24 @@ struct AchievementsView: View {
                                             .frame(width: 300)
                                             .mask(RoundedRectangle(cornerRadius: 5))
                                             .padding(15)
-                                        VStack(alignment: .center, spacing: 5) {
+                                        VStack(alignment: .leading, spacing: 5) {
                                             Text(achievement.title)
+                                                .multilineTextAlignment(.leading)
                                                 .foregroundColor(.white)
-                                                .frame(maxWidth: 350)
                                                 .font(.system(size: 20, weight: .bold, design: .serif))
-                                                .multilineTextAlignment(.center)
-                                            #warning(".leading alignment is so goddamn wonky please fix")
+                                                .frame(maxWidth: 350, alignment: .leading)
+                                            
                                             Text(achievement.description)
                                                 .foregroundColor(.white)
-                                                .frame(maxWidth: 400)
+                                                .frame(maxWidth: 350)
                                                 .font(.system(size: 12, design: .serif))
-                                                .multilineTextAlignment(.center)
-                                            OrganiserTagView(organiser: achievement.organisers[0])
-                                                .padding(.top, -5)
-//                                            ForEach(achievement.organisers) { organiser in
-//                                                OrganiserTagView(organiser: organiser)
-//                                            }
-                                            #warning("something wrong here with the for each")
+                                                .multilineTextAlignment(.leading)
+                                            
+//                                            OrganiserTagView(organiser: achievement.organisers[0])
+                                            
+                                            OrganizerView(organizers: achievement.organizers)
                                         }
+//                                        .frame(maxWidth: .infinity)
                                         .padding(.leading, 13)
                                     }
                                     .padding(20)

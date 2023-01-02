@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+@available(iOS 16.0, *)
 struct HomeView: View {
     
     @State var showAchievementsView = false
