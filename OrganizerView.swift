@@ -12,10 +12,13 @@ struct OrganizerView: View {
     var organizers: [Organizer]
     
     var body: some View {
-        HStack {
-            ForEach(organizers) { organizer in
-                OrganizerTagView(organizer: organizer)
+        ScrollView(.horizontal, showsIndicators: false) {
+            HStack {
+                ForEach(organizers) { organizer in
+                    OrganizerTagView(organizer: organizer)
+                }
             }
+            .padding([.leading, .top, .bottom], 2)
         }
     }
 }

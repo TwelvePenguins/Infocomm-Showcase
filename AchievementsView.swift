@@ -44,41 +44,33 @@ struct AchievementsView: View {
                                     .frame(width: 120, height: 40)
                                     .background(Color(getBackgroundColor(for: achievement.year)))
                                     .cornerRadius(5)
-                                
-                                ZStack(alignment: .center){
-                                    RoundedRectangle(cornerRadius: 5)
-                                        .foregroundColor(Color(getBackgroundColor(for: achievement.year)))
-                                        .frame(maxWidth: 800)
-                                    
-                                    HStack(alignment: .center){
-                                        Image(achievement.image)
-                                            .resizable()
-                                            .scaledToFit()
-                                            .frame(width: 300)
-                                            .mask(RoundedRectangle(cornerRadius: 5))
-                                            .padding(15)
-                                        VStack(alignment: .leading, spacing: 5) {
-                                            Text(achievement.title)
-                                                .multilineTextAlignment(.leading)
-                                                .foregroundColor(.white)
-                                                .font(.system(size: 20, weight: .bold, design: .serif))
-                                                .frame(maxWidth: 350, alignment: .leading)
-                                            
-                                            Text(achievement.description)
-                                                .foregroundColor(.white)
-                                                .frame(maxWidth: 350)
-                                                .font(.system(size: 12, design: .serif))
-                                                .multilineTextAlignment(.leading)
-                                            
-//                                            OrganiserTagView(organiser: achievement.organisers[0])
-                                            
-                                            OrganizerView(organizers: achievement.organizers)
-                                        }
-//                                        .frame(maxWidth: .infinity)
-                                        .padding(.leading, 13)
+                                HStack(alignment: .center){
+                                    Image(achievement.image)
+                                        .resizable()
+                                        .scaledToFit()
+                                        .frame(width: 300)
+                                        .mask(RoundedRectangle(cornerRadius: 5))
+                                        .padding(15)
+                                    VStack(alignment: .leading, spacing: 5) {
+                                        Text(achievement.title)
+                                            .multilineTextAlignment(.leading)
+                                            .foregroundColor(.white)
+                                            .font(.system(size: 20, weight: .bold, design: .serif))
+                                            .frame(maxWidth: 350, alignment: .leading)
+                                        Text(achievement.description)
+                                            .foregroundColor(.white)
+                                            .frame(maxWidth: 350)
+                                            .font(.system(size: 12, design: .serif))
+                                            .multilineTextAlignment(.leading)
+                                            .padding(.bottom, 3)
+                                        OrganizerView(organizers: achievement.organizers)
                                     }
-                                    .padding(20)
+                                    .padding(.leading, 13)
                                 }
+                                .padding(20)
+                                .background(Color(getBackgroundColor(for: achievement.year)))
+                                .frame(width: 800)
+                                .cornerRadius(5)
                             }
                         }
                         .padding(30)
