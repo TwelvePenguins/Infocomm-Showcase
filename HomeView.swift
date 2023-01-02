@@ -16,10 +16,15 @@ struct HomeView: View {
         NavigationStack {
             ZStack(alignment: .center) {
                 HStack(spacing: 0) {
-                    Rectangle()
-                        .foregroundColor(Color("BackgroundBlue"))
-                    Rectangle()
-                        .foregroundColor(Color("BackgroundGreen"))
+                    BouncyView(icon: "curlybraces") { _ in
+                        
+                    }
+                    .background(Color("BackgroundBlue"))
+                    
+                    BouncyView(icon: "plus") { _ in
+                        
+                    }
+                    .background(Color("BackgroundGreen"))
                 }
                 VStack(alignment: .center) {
                     Text("Infocomm\nClub")
