@@ -12,7 +12,7 @@ struct OrganizerView: View {
     var organizers: [Organizer]
     
     var body: some View {
-        ScrollView(.horizontal, showsIndicators: false) {
+        ScrollView(.horizontal) {
             HStack {
                 ForEach(organizers) { organizer in
                     OrganizerTagView(organizer: organizer)

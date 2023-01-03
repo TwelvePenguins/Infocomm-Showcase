@@ -16,7 +16,7 @@ struct BouncyView: UIViewRepresentable {
         let view = IconBouncyView(onCollide: onCollide)
         
         Timer.scheduledTimer(withTimeInterval: 0.1, repeats: false) { _ in
-            for i in 0..<4 {
+            for _ in 0..<5 {
                 view.insert(icon: icon)
             }
         }
